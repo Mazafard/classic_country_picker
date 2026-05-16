@@ -1,3 +1,15 @@
+## 1.0.7
+
+* Upgraded Dart SDK to 3.11.5 and `flutter_lints` to 6.0.0.
+* Added CI workflow with matrix testing across Linux, macOS, and Windows with iOS/Android build checks.
+* Added pre-commit hook for automated quality gates.
+* Added GitHub Actions automated publishing via OIDC.
+
+## 1.0.6
+
+* Added comprehensive test suite (33 tests covering model, data, parser, and widgets).
+* Added full API reference and AI integration guide to README.
+
 ## 1.0.5
 
 * Added `showPhoneCode` optional parameter to `showCountryPicker` function to hide the country dial code in the dropdown by default, ensuring full backwards-compatibility with existing packages.
