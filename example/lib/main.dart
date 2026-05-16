@@ -12,10 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Classic Country Picker Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue, useMaterial3: true),
       home: const ExampleScreen(),
     );
   }
@@ -34,10 +31,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Classic Country Picker'),
-        elevation: 2,
-      ),
+      appBar: AppBar(title: const Text('Classic Country Picker'), elevation: 2),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -57,12 +51,17 @@ class _ExampleScreenState extends State<ExampleScreen> {
                   showDialCode: true,
                   showName: true,
                   showCode: false,
-                  initialCountry:
-                      CountryData.countries.firstWhere((c) => c.code == 'US'),
+                  initialCountry: CountryData.countries.firstWhere(
+                    (c) => c.code == 'US',
+                  ),
                   textStyle: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w500),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
@@ -90,16 +89,24 @@ class _ExampleScreenState extends State<ExampleScreen> {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 12),
-                Text('Name: ${_selectedCountry!.name}',
-                    textAlign: TextAlign.center),
-                Text('Code: ${_selectedCountry!.code}',
-                    textAlign: TextAlign.center),
-                Text('Dial Code: ${_selectedCountry!.dialCode}',
-                    textAlign: TextAlign.center),
-                Text('Flag: ${_selectedCountry!.flagEmoji}',
-                    style: const TextStyle(fontSize: 24),
-                    textAlign: TextAlign.center),
-              ]
+                Text(
+                  'Name: ${_selectedCountry!.name}',
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Code: ${_selectedCountry!.code}',
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Dial Code: ${_selectedCountry!.dialCode}',
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  'Flag: ${_selectedCountry!.flagEmoji}',
+                  style: const TextStyle(fontSize: 24),
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ],
           ),
         ),

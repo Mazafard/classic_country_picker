@@ -131,7 +131,8 @@ void main() {
     test('all country codes are exactly 2 characters', () {
       for (final country in CountryData.countries) {
         expect(country.code.length, 2,
-            reason: '${country.name} code should be 2 chars, got "${country.code}"');
+            reason:
+                '${country.name} code should be 2 chars, got "${country.code}"');
       }
     });
 
