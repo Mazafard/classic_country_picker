@@ -8,10 +8,13 @@ import 'country_picker_dialog.dart';
 Future<Country?> showCountryPicker({
   required BuildContext context,
   required ValueChanged<Country> onSelect,
+  bool showPhoneCode = false,
 }) {
   return showDialog<Country>(
     context: context,
-    builder: (BuildContext context) => const CountryPickerDialog(),
+    builder: (BuildContext context) => CountryPickerDialog(
+      showDialCode: showPhoneCode,
+    ),
   ).then((country) {
     if (country != null) {
       onSelect(country);

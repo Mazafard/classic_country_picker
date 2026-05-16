@@ -1,3 +1,7 @@
+## 1.0.5
+
+* Added `showPhoneCode` optional parameter to `showCountryPicker` function to hide the country dial code in the dropdown by default, ensuring full backwards-compatibility with existing packages.
+
 ## 1.0.4
 
 * Fixed GitHub Actions automated publishing.
