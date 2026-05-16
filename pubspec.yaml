@@ -12,10 +12,6 @@ topics:
   - ui
   - widgets
 
-screenshots:
-  - description: 'A demonstration of the classic country picker in action.'
-    path: assets/demo.webp
-
 environment:
   sdk: ^3.4.0
   flutter: ">=3.22.0"
