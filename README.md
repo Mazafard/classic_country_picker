@@ -20,35 +20,144 @@ A highly customizable, elegant, and classic country picker for Flutter.
 - 🚀 **Zero Dependencies:** Keeps your app lightweight and fast.
 - 📱 **Cross-Platform:** Works on Android, iOS, macOS, Windows, Linux, and Web.
 
-## Usage
+## Quick Start
 
 Simply use the `ClassicCountryDropdown` widget anywhere in your app:
 
 ```dart
-import 'package:flutter/material.dart';
 import 'package:classic_country_picker/classic_country_picker.dart';
 
-class MyWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ClassicCountryDropdown(
-        showFlag: true,
-        showDialCode: true,
-        showName: true,
-        showCode: false,
-        onChanged: (Country country) {
-          print('Selected: ${country.name} (${country.dialCode})');
-        },
-      ),
-    );
-  }
-}
+ClassicCountryDropdown(
+  onChanged: (Country country) {
+    print('Selected: ${country.name} (${country.dialCode})');
+  },
+)
 ```
 
-## Customization
+## API Reference
 
-You can customize almost every aspect of the `ClassicCountryDropdown`:
+### `ClassicCountryDropdown`
+
+The main widget. A tappable dropdown that opens the country picker dialog.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `onChanged` | `ValueChanged<Country>?` | `null` | Called when a country is selected. |
+| `initialCountry` | `Country?` | `null` | The initially selected country. |
+| `showFlag` | `bool` | `true` | Whether to show the country flag emoji. |
+| `showDialCode` | `bool` | `false` | Whether to show the dial code (e.g. `+1`). |
+| `showName` | `bool` | `true` | Whether to show the country name. |
+| `showCode` | `bool` | `false` | Whether to show the ISO code (e.g. `US`). |
+| `textStyle` | `TextStyle?` | `null` | Text style for the selected item display. |
+| `padding` | `EdgeInsetsGeometry` | `EdgeInsets.symmetric(horizontal: 12, vertical: 8)` | Padding inside the dropdown container. |
+| `decoration` | `BoxDecoration?` | `null` | Custom decoration for the dropdown container. |
+| `dialogBackgroundColor` | `Color?` | `null` | Background color of the picker dialog. |
+| `searchHint` | `String` | `'Search country...'` | Hint text for the search bar. |
+
+**Example — show only flag and dial code (phone input):**
+
+```dart
+ClassicCountryDropdown(
+  showFlag: true,
+  showName: false,
+  showDialCode: true,
+  showCode: false,
+  onChanged: (country) {
+    print('${country.dialCode}'); // +1
+  },
+)
+```
+
+**Example — show flag, name, and ISO code:**
+
+```dart
+ClassicCountryDropdown(
+  showFlag: true,
+  showName: true,
+  showCode: true,
+  showDialCode: false,
+  onChanged: (country) {
+    print('${country.name} (${country.code})'); // United States (US)
+  },
+)
+```
+
+---
+
+### `CountryPickerDialog`
+
+The dialog widget shown when the dropdown is tapped. Can also be used standalone via `showDialog`.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `showFlag` | `bool` | `true` | Whether to show the flag emoji in each row. |
+| `showDialCode` | `bool` | `true` | Whether to show the dial code in each row. |
+| `showCode` | `bool` | `false` | Whether to show the ISO code as a subtitle. |
+| `nameStyle` | `TextStyle?` | `null` | Custom text style for the country name. |
+| `dialCodeStyle` | `TextStyle?` | `null` | Custom text style for the dial code. |
+| `codeStyle` | `TextStyle?` | `null` | Custom text style for the ISO code. |
+| `backgroundColor` | `Color?` | `null` | Background color of the dialog. |
+| `searchHint` | `String` | `'Search country...'` | Hint text for the search input. |
+
+---
+
+### `showCountryPicker()`
+
+A convenience function for showing the picker dialog. Drop-in replacement for `showCountryPicker` from other popular packages.
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `context` | `BuildContext` | **required** | The build context. |
+| `onSelect` | `ValueChanged<Country>` | **required** | Called when a country is selected. |
+| `showPhoneCode` | `bool` | `false` | Whether to show dial codes in the picker list. |
+
+```dart
+showCountryPicker(
+  context: context,
+  showPhoneCode: true,
+  onSelect: (Country country) {
+    print('${country.name}: ${country.dialCode}');
+  },
+);
+```
+
+---
+
+### `Country` Model
+
+The data model returned when a country is selected.
+
+| Property | Type | Description |
+|---|---|---|
+| `name` | `String` | Country name (e.g. `"United States"`). |
+| `code` | `String` | ISO 3166-1 alpha-2 code (e.g. `"US"`). |
+| `dialCode` | `String` | International dial code (e.g. `"+1"`). |
+| `flagEmoji` | `String` | Unicode flag emoji (e.g. `"🇺🇸"`). |
+| `countryCode` | `String` | Alias for `code` (backward compatibility). |
+
+---
+
+### `CountryParser`
+
+A utility class for looking up countries by their ISO code.
+
+```dart
+final country = CountryParser.parseCountryCode('DE');
+print(country.name); // Germany
+```
+
+---
+
+### `CountryData`
+
+Access the full list of countries directly:
+
+```dart
+final allCountries = CountryData.countries;
+print('Total countries: ${allCountries.length}');
+```
+
+## Customization Example
 
 ```dart
 ClassicCountryDropdown(
