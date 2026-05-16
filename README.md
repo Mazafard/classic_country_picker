@@ -181,6 +181,101 @@ ClassicCountryDropdown(
 )
 ```
 
+## AI Integration Guide
+
+> This section is written for AI coding assistants (Gemini, Claude, Copilot, etc.)
+> so they can generate correct `classic_country_picker` code on the first try.
+
+### Import
+
+```dart
+import 'package:classic_country_picker/classic_country_picker.dart';
+```
+
+This single import gives you: `Country`, `CountryData`, `CountryParser`, `ClassicCountryDropdown`, `CountryPickerDialog`, and `showCountryPicker`.
+
+### Common Patterns
+
+**1. Dropdown in a form (show flag + name, no dial code):**
+
+```dart
+ClassicCountryDropdown(
+  showFlag: true,
+  showName: true,
+  showDialCode: false, // default
+  showCode: false,     // default
+  onChanged: (Country country) {
+    // country.name, country.code, country.dialCode, country.flagEmoji
+  },
+)
+```
+
+**2. Phone number input (flag + dial code only):**
+
+```dart
+ClassicCountryDropdown(
+  showFlag: true,
+  showName: false,
+  showDialCode: true,
+  onChanged: (Country country) {
+    setState(() => _dialCode = country.dialCode); // e.g. "+1"
+  },
+)
+```
+
+**3. Show picker as a dialog (migration from other packages):**
+
+```dart
+showCountryPicker(
+  context: context,
+  showPhoneCode: true, // false = hide dial codes in list
+  onSelect: (Country country) {
+    // handle selection
+  },
+);
+```
+
+**4. Pre-select a country by ISO code:**
+
+```dart
+final country = CountryParser.parseCountryCode('DE'); // returns Country?
+ClassicCountryDropdown(
+  initialCountry: country,
+  onChanged: (c) {},
+)
+```
+
+**5. Access the full country list:**
+
+```dart
+final all = CountryData.countries; // List<Country>
+```
+
+### Country Model Shape
+
+```dart
+Country(
+  name: 'Germany',       // required String
+  code: 'DE',            // required String (ISO 3166-1 alpha-2)
+  dialCode: '+49',       // required String (starts with +)
+  flagEmoji: '🇩🇪',      // required String (unicode emoji)
+)
+// Also has: .countryCode (alias for .code), .toJson(), Country.fromJson()
+```
+
+### Default Values Summary
+
+| Widget / Function | Parameter | Default |
+|---|---|---|
+| `ClassicCountryDropdown` | `showFlag` | `true` |
+| `ClassicCountryDropdown` | `showName` | `true` |
+| `ClassicCountryDropdown` | `showDialCode` | `false` |
+| `ClassicCountryDropdown` | `showCode` | `false` |
+| `CountryPickerDialog` | `showFlag` | `true` |
+| `CountryPickerDialog` | `showDialCode` | `true` |
+| `CountryPickerDialog` | `showCode` | `false` |
+| `showCountryPicker` | `showPhoneCode` | `false` |
+
 ## Additional Information
 
 For a complete runnable example, please check the `example` folder in the repository.
