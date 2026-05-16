@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Fixed GitHub Actions automated publishing.
+
 ## 1.0.3
 
 * Upgraded minimum Dart SDK requirement to `^3.6.0`.
