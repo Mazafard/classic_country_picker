@@ -1,5 +1,7 @@
 # Classic Country Picker
 
+![Demo](assets/demo.webp)
+
 A highly customizable, elegant, and classic country picker for Flutter. 
 
 `classic_country_picker` provides an easy way to let your users select a country from a visually pleasing dialog. You can show the country name, emoji flag, dial code, and ISO code. It works out-of-the-box on Android, iOS, macOS, Web, Windows, and Linux.
