@@ -8,15 +8,14 @@ import 'country_picker_dialog.dart';
 Future<Country?> showCountryPicker({
   required BuildContext context,
   required ValueChanged<Country> onSelect,
-  // You can add more customization parameters here if needed to match other packages
 }) {
   return showDialog<Country>(
     context: context,
-    builder: (BuildContext context) => CountryPickerDialog(
-      onCountrySelected: (Country country) {
-        onSelect(country);
-        Navigator.of(context).pop(country);
-      },
-    ),
-  );
+    builder: (BuildContext context) => const CountryPickerDialog(),
+  ).then((country) {
+    if (country != null) {
+      onSelect(country);
+    }
+    return country;
+  });
 }

@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Fixed compilation issue in `showCountryPicker` function.
+
 ## 1.0.1
 
 * Added `showCountryPicker` function for easier migration from older country picker packages.
