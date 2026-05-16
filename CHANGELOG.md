@@ -1,3 +1,12 @@
+## 1.0.9
+
+* Applied `dart format` across the entire codebase for consistent code style.
+* Updated changelog for all missing versions.
+
+## 1.0.8
+
+* Reformatted `country_data.dart`, example app, and test suite to comply with Dart formatting standards.
+
 ## 1.0.7
 
 * Upgraded Dart SDK to 3.11.5 and `flutter_lints` to 6.0.0.
