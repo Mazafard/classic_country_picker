@@ -1,6 +1,7 @@
 # Classic Country Picker
 
-![Demo](assets/demo.webp)
+<img width="1206" height="2622" alt="output" src="https://github.com/user-attachments/assets/95b96614-b530-471d-b318-41c146b00130" />
+
 
 A highly customizable, elegant, and classic country picker for Flutter. 
 
