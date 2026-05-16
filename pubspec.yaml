@@ -5,6 +5,13 @@ homepage: https://github.com/mazafard/classic_country_picker
 repository: https://github.com/mazafard/classic_country_picker
 issue_tracker: https://github.com/mazafard/classic_country_picker/issues
 
+topics:
+  - country
+  - picker
+  - dropdown
+  - ui
+  - widgets
+
 environment:
   sdk: ^3.4.0
   flutter: ">=3.22.0"
