@@ -11,6 +11,9 @@ class Country {
   /// The emoji flag for the country.
   final String flagEmoji;
 
+  /// Alias for [code] to maintain compatibility with other packages.
+  String get countryCode => code;
+
   /// Creates a new [Country] instance.
   const Country({
     required this.name,

@@ -1,6 +1,6 @@
 name: classic_country_picker
 description: A highly customizable, classic country picker for Flutter. Pick countries with emoji flags, dial codes, and search support. Works on Android, iOS, Web, macOS, Windows, and Linux.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/mazafard/classic_country_picker
 repository: https://github.com/mazafard/classic_country_picker
 issue_tracker: https://github.com/mazafard/classic_country_picker/issues

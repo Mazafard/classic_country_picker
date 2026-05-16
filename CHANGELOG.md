@@ -1,3 +1,9 @@
+## 1.0.1
+
+* Added `showCountryPicker` function for easier migration from older country picker packages.
+* Added `countryCode` getter to `Country` model for easier migration.
+* Added `CountryParser` utility class to parse countries from their ISO codes.
+
 ## 1.0.0
 
 * Initial release of `classic_country_picker`.
