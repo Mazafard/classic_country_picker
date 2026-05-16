@@ -1,3 +1,8 @@
+## 1.0.3
+
+* Upgraded minimum Dart SDK requirement to `^3.6.0`.
+* Upgraded `flutter_lints` to version 6.
+
 ## 1.0.2
 
 * Fixed compilation issue in `showCountryPicker` function.
